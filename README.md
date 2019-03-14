@@ -23,13 +23,14 @@ Moreover, it is necessary to add a line with two zeros "0 0" to the end of the D
 ## Step 5: Quantifying the predictability.
 Based on the DAG file (with .poset extension) and the LAMBDA file (with .lambda extension), using "CODE/PREDICTABILITY_CBN.R" function, which depends on the "CODE/ALLOWED.R" function, predictability can be computed.
 
-*** Notes on the PREDICTABILITY_CBN.R function ***
-### Inputs of the PREDICTABILITY_CBN.R function are as follows:
+### Notes on the PREDICTABILITY_CBN.R function
+#### Inputs
+Inputd of the PREDICTABILITY_CBN.R function are as follows:
 i) DAG: a matrix representing the DAG of restrictions. (nrow>=1 , ncol=2), the last row is always c(0,0)). See step 4 (data preprocessing)
 ii) LAMBDA: matrix of Lambda values produced by the CBN model (nrow=(x+1),ncol=1), the first row always equals 1.
 iii) x: number of mutations considered.
-
-### Output of the PREDICTABILITY_CBN.R function is simply a number between 0 and 1, which is the estimated predictability.
+#### Output
+The output of the PREDICTABILITY_CBN.R function is simply a number between 0 and 1, which is the estimated predictability.
 
 
 # ii) Based on Fitness landscapes:
