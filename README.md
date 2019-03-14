@@ -1,5 +1,5 @@
 # predictability_of_cancer_evolution
-The following is a pipeline for quantifying the predictability of cancer evolution based either on i) Conjunctive Bayesian Networks (CBNs) or ii) Fitness Landscapes:
+The following is a pipeline for estimating the predictability of cancer evolution based either on i) Conjunctive Bayesian Networks (CBNs) or ii) Fitness Landscapes:
 
 # i) Based on Conjunctive Bayesian Networks:
 ## Step 0: Downloading the CT-CBN software.
