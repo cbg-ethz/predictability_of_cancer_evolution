@@ -11,21 +11,25 @@ Moreover, the R functions in the step 5 require to install the Bioconductor pack
 Each line in a genotype file represents a genotype, a binary vector of a given length, each element of which correponds to a given mutation, and is 1 if mutation exists and zero otherwise. The first line of the genotype file is a single number indicating the number of genotypes existing in the genotype file. Furthermore, note that the first column of the genotype file is all one (See an example of a genotype file in DATA/genotype.txt in this repository) 
 
 ## Step 2: Generating an initial DAG of restrictions using CT-CBN.
-In this step, starting from an empty poset, using CT-CBN we generate an initial DAG of restrictions (see the ReadMe file of the CT-CBN for more details)
+In this step, starting from an empty poset, using CT-CBN we generate an initial DAG of restrictions (see the ReadMe file of the CT-CBN (https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.) for more details)
 
 ## Step 3: Generating the final DAG of restrictions and Lambda values using H-CBN.
-In this step, starting from the DAG of restrictions generated in step 2, using H-CBN (with 10000 steps of simulated annealing and T=1) we generate the final DAG of restrictions (see the ReadMe file of the CT-CBN for more details).
+In this step, starting from the DAG of restrictions generated in step 2, using H-CBN (with 10000 steps of simulated annealing and T=1) we generate the final DAG of restrictions (see the ReadMe file of the CT-CBN (https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.) for more details).
 
 ## Step 4: Data Preprocessing.
 Make sure to remove the first and the last line of the final DAG file (with .poset extension). 
 Moreover, it is necessary to add a line with two zeros "0 0" to the end of the DAG file. 
 
 ## Step 5: Quantifying the predictability.
-Based on the DAG file (with .poset extension) and the LAMBDA file (with .lambda extension), using "PREDICTABILITY_CBN.R" function, which depends on "ALLOWED.R" function, predictability can be computed. Both PREDICTABILITY_CBN.R and ALLOWED.R ara available in this folder.
+Based on the DAG file (with .poset extension) and the LAMBDA file (with .lambda extension), using "CODE/PREDICTABILITY_CBN.R" function, which depends on the "CODE/ALLOWED.R" function, predictability can be computed.
 
-#Inputs
-Inputs of the PREDICTABILITY_CBN.R function are as follows:
-#Inputs of the PREDICTABILITY_CBN.R function are as follows:
+*** Notes on the PREDICTABILITY_CBN.R function ***
+### Inputs of the PREDICTABILITY_CBN.R function are as follows:
+i) DAG: a matrix representing the DAG of restrictions. (nrow>=1 , ncol=2), the last row is always c(0,0)). See step 4 (data preprocessing)
+ii) LAMBDA: matrix of Lambda values produced by the CBN model (nrow=(x+1),ncol=1), the first row always equals 1.
+iii) x: number of mutations considered.
+
+### Output of the PREDICTABILITY_CBN.R function is simply a number between 0 and 1, which is the estimated predictability.
 
 
 # ii) Based on Fitness landscapes:
