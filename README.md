@@ -1,4 +1,6 @@
 # predictability_of_cancer_evolution
+Author: Sayed-Rzgar Hosseini (razgar@gmail.com)  
+
 The following is a pipeline for estimating the predictability of cancer evolution based either on i) Conjunctive Bayesian Networks (CBNs) or ii) Fitness Landscapes:
 
 # i) Based on Conjunctive Bayesian Networks:
