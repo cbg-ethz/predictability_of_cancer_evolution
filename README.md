@@ -58,11 +58,11 @@ ii) x: number of mutations considered.
 #### Output
 The output of the PREDICTABILITY_SSWM.R function is simply a number between 0 and 1, which is the estimated predictability.
 #### Example
-In this example, we calculate the predictability of the 10th representable fitness landcsape.
-Landscape<-readRDS('DATA/FitnessLandcape_Representable.rds')
-FITNESS<-Landscape[,10]
-x<-7
-pred<-PREDICTABILITY_SSWM(FITNESS,x)% the output equals 0.61.
+In this example, we calculate the predictability of the 10th representable fitness landcsape.  
+Landscape<-readRDS('DATA/FitnessLandcape_Representable.rds')  
+FITNESS<-Landscape[,10]  
+x<-7  
+pred<-PREDICTABILITY_SSWM(FITNESS,x)% the output equals 0.61.  
 
 
 
