@@ -4,7 +4,7 @@ The following is a pipeline for quantifying the predictability of cancer evoluti
 # i) Based on Conjunctive Bayesian Networks:
 ## Step 0: Downloading the CT-CBN software.
 CBN model has been developed by Prof. Niko Beerenwinkel group and the software is free to download via the link below:
-https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.
+https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.  
 Moreover, the R functions in the step 5 require to install the Bioconductor package "OncoSimulR" (see https://bioconductor.org/packages/release/bioc/html/OncoSimulR.html). 
 
 ## Step 1: Preparing the genotype file.
@@ -14,10 +14,10 @@ Each line in a genotype file represents a genotype, a binary vector of a given l
 In this step, starting from an empty poset, using CT-CBN we generate an initial DAG of restrictions (see the ReadMe file of the CT-CBN (https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.) for more details)
 
 ## Step 3: Generating the final DAG of restrictions and Lambda values using H-CBN.
-In this step, starting from the DAG of restrictions generated in step 2, using H-CBN (with 10000 steps of simulated annealing and T=1) we generate the final DAG of restrictions (see the ReadMe file of the CT-CBN (https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.) for more details).
+In this step, starting from the DAG of restrictions generated in step 2, using H-CBN (with 10000 steps of simulated annealing and T=1), we generate the final DAG of restrictions (see the ReadMe file of the CT-CBN (https://www.bsse.ethz.ch/cbg/software/ct-cbn.html.) for more details).
 
 ## Step 4: Data Preprocessing.
-Make sure to remove the first and the last line of the final DAG file (with .poset extension). 
+Make sure to remove the first and the last line of the final DAG file (with .poset extension).   
 Moreover, it is necessary to add a line with two zeros "0 0" to the end of the DAG file. 
 
 ## Step 5: Quantifying the predictability.
@@ -25,12 +25,20 @@ Based on the DAG file (with .poset extension) and the LAMBDA file (with .lambda 
 
 ### Notes on the PREDICTABILITY_CBN.R function
 #### Inputs
-Inputd of the PREDICTABILITY_CBN.R function are as follows:
+Inputs of the PREDICTABILITY_CBN.R function are as follows:  
 i) DAG: a matrix representing the DAG of restrictions. (nrow>=1 , ncol=2), the last row is always c(0,0)). See step 4 (data preprocessing)  
 ii) LAMBDA: matrix of Lambda values produced by the CBN model (nrow=(x+1),ncol=1), the first row always equals 1.  
 iii) x: number of mutations considered.  
 #### Output
 The output of the PREDICTABILITY_CBN.R function is simply a number between 0 and 1, which is the estimated predictability.
+#### Example
+DAG<-read.table('DATA/EXAMPLE.poset')
+LAMBDA<-read.table('DATA/EXAMPLE.lambda')
+x<-4
+pred<-PREDICTABILITY_CBN(DAG,LAMBDA,x)% the output equals 0.59.
+
+
+
 
 
 # ii) Based on Fitness landscapes:
