@@ -63,10 +63,10 @@ The output of the PREDICTABILITY_SSWM.R function is simply a number between 0 an
 #### Example
 In this example, we calculate the predictability of the 10th representable fitness landcsape.  
 ```{r}
-Landscape<-readRDS('DATA/FitnessLandcape_Representable.rds')  
-FITNESS<-Landscape[,10]  
+FITNESS_LandscapeS<-readRDS('DATA/FitnessLandcape_Representable.rds')  
+FITNESS_Landscape<-FITNESS_LandscapeS[,10]  
 x<-7  
-pred<-PREDICTABILITY_SSWM(FITNESS,x)% the output equals 0.61.  
+pred<-PREDICTABILITY_SSWM(FITNESS_Landscape,x)% the output equals 0.61.  
 ```
 
 
