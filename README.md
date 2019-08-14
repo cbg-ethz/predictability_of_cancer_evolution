@@ -70,4 +70,10 @@ pred<-PREDICTABILITY_SSWM(FITNESS_Landscape,x)% the output equals 0.61.
 ```
 
 
+### Real data:
+Two sets of real data were analyzed in this paper, which are available as follows:
+/DATA/TCGA: This includes 15 genotype matrices corresponding to 15 cancer types based on TCGA dataset.
+/DATA/MSK: This includes 15 genotype matrices corresponding to 15 cancer types based on MSK-IMPACT dataset.
+
+
 
